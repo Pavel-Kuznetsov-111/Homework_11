@@ -12,38 +12,40 @@ public class Main {
         int year = 2020;
         printLeapYearStatus(year);
     }
-//Задача №2
 
-    public static void task1(int clientDeviceYear) {
-        int clientIOS = 0;
-        int clientAndroid = 1;
-        if (clientIOS == 0) {
-            if (clientDeviceYear >= 2015) {
-                System.out.println("Скачайте приложение для ios");
-            } else {
-                System.out.println("Установите облегченную версию приложения для iOS по ссылке");
-            }
-        } else if (clientIOS == 1) {
-            if (clientDeviceYear >= 2015) {
-                System.out.println("Установите облегченную версию приложения для Android по ссылке");
-            } else {
-                System.out.println("Операционная система не поддерживается");
-            }
+    //Задача №2
+
+    public static void downloadCorrectForGadget(int clientDeviceYear, int clientIOS) {
+        if ((clientIOS == 1) && (clientDeviceYear < 2015)) {
+            System.out.println("Установите облегчённую версию приложения для Android по ссылке");
+        } else if ((clientIOS == 1) && (clientDeviceYear >= 2015)) {
+            System.out.println("Установите версию приложения для Android по ссылке");
         }
-
+        if ((clientIOS == 0) && (clientDeviceYear < 2015)) {
+            System.out.println("Установите облегчённую версию приложения для iOS по ссылке");
+        } else if ((clientIOS == 0) && (clientDeviceYear >= 2015)) {
+            System.out.println("Установите версию приложения для iOS по ссылке");
+        }
     }
 
     //Задача №3
-    public static String totalDaysDelivry(int distance) {
-        int dayDelivery = 1;
-        if (distance >= 20 && distance <= 60) {
-            dayDelivery++;
-        } else if (distance >= 60 && distance < 100) {
-            dayDelivery += 2;
-        } else if (distance > 100) {
-            return "Доставки нет";
+    public static void totalDaysDelivry(int time, int deliveryDistance) {
+        if (deliveryDistance < 20) {
+            System.out.println("Потребутся дней " + time);
+        } else if ((deliveryDistance >= 20) && (deliveryDistance <= 60)) {
+            time = time++;
+            System.out.println("Потребутся дней " + time);
+        } else if ((deliveryDistance >= 60) && (deliveryDistance < 100)) {
+            time = time++;
+            System.out.println("Потребутся дней " + time);
+        } else {
+            System.out.println("Доставки нет");
         }
-        return "Потребуется дней " + dayDelivery;
     }
+
+}
+
+
+
 
 
